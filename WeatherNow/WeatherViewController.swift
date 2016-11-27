@@ -19,6 +19,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    var currentWeather = CurrentWeather()
+    
     // MARK: - Lifecyle
     
     override func viewDidLoad() {
@@ -28,8 +30,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
-        print(CURRENT_WEATHER_URL)
-        
+        currentWeather.downloadWeatherDetails {
+            
+            // setup UI to load DL'd data
+        }
     }
     
     // MARK: - TableView Delegate Methods
