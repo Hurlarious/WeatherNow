@@ -19,7 +19,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var currentWeather = CurrentWeather()
+    var currentWeather: CurrentWeather!
+
     
     // MARK: - Lifecyle
     
@@ -30,9 +31,10 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         
+        currentWeather = CurrentWeather()
         currentWeather.downloadWeatherDetails {
             
-            // setup UI to load DL'd data
+            self.updateMainUI()
         }
     }
     
@@ -50,6 +52,22 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
         return cell
+    }
+    
+    
+    
+    // MARK: - Functions
+    
+    
+    func updateMainUI() {
+        
+        dateLabel.text = currentWeather.date
+        currentTempLabel.text = "\(currentWeather.currentTemp)"
+        locationLabel.text = currentWeather.cityName
+        currentWeatherLabel.text = currentWeather.weatherType
+        currentWeatherImage.image = UIImage(named: currentWeather.weatherType)
+        
+        
     }
 
 

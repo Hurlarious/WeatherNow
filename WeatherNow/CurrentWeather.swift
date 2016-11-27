@@ -56,7 +56,7 @@ class CurrentWeather {
     
     // MARK: - Functions
     
-    func downloadWeatherDetails(compeleted: DownloadComplete) {
+    func downloadWeatherDetails(compeleted: @escaping DownloadComplete) {
         
         // Alamofire download
         
@@ -84,15 +84,16 @@ class CurrentWeather {
                     
                     if let temp = main["temp"] as? Double {
                         
-                        let kelvinToCelcius = (temp - 273.15)
+                        let kelvinToCelcius = round(10 * (temp - 273.15)/10)
                         self._currentTemp = kelvinToCelcius
                         print(self._currentTemp)
                     }
                 }
             }
             
+            compeleted()
         }
-        compeleted()
+        
     }
     
 }
