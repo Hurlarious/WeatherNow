@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42D2CE111DEA643B0040E44C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2CE101DEA643B0040E44C /* AppDelegate.swift */; };
-		42D2CE131DEA643B0040E44C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2CE121DEA643B0040E44C /* ViewController.swift */; };
+		42D2CE131DEA643B0040E44C /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2CE121DEA643B0040E44C /* WeatherViewController.swift */; };
 		42D2CE161DEA643B0040E44C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D2CE141DEA643B0040E44C /* Main.storyboard */; };
 		42D2CE181DEA643B0040E44C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D2CE171DEA643B0040E44C /* Assets.xcassets */; };
 		42D2CE1B1DEA643B0040E44C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D2CE191DEA643B0040E44C /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		33563FAA5EA0AD57DA3AC5DB /* Pods-WeatherNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherNow/Pods-WeatherNow.release.xcconfig"; sourceTree = "<group>"; };
 		42D2CE0D1DEA643B0040E44C /* WeatherNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42D2CE101DEA643B0040E44C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42D2CE121DEA643B0040E44C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		42D2CE121DEA643B0040E44C /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		42D2CE151DEA643B0040E44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42D2CE171DEA643B0040E44C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42D2CE1A1DEA643B0040E44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				42D2CE101DEA643B0040E44C /* AppDelegate.swift */,
-				42D2CE121DEA643B0040E44C /* ViewController.swift */,
+				42D2CE121DEA643B0040E44C /* WeatherViewController.swift */,
 				42D2CE141DEA643B0040E44C /* Main.storyboard */,
 				42D2CE171DEA643B0040E44C /* Assets.xcassets */,
 				42D2CE191DEA643B0040E44C /* LaunchScreen.storyboard */,
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42D2CE131DEA643B0040E44C /* ViewController.swift in Sources */,
+				42D2CE131DEA643B0040E44C /* WeatherViewController.swift in Sources */,
 				42D2CE111DEA643B0040E44C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +377,7 @@
 				42D2CE211DEA643B0040E44C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
