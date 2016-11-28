@@ -55,13 +55,14 @@ class Forecast {
             
             if let min = temp["min"] as? Double {
                 
-                let kelvinToCelcius = round(10 * (min - 273.15)/10)
+                //let kelvinToCelcius = round(10 * (min - 273.15)/10)
+                let kelvinToCelcius = (min - 273.15).roundTo(places: 1)
                 self._lowTemp = "\(kelvinToCelcius)"
             }
             
             if let max = temp["max"] as? Double {
                 
-                let kelvinToCelcius = round(10 * (max - 273.15)/10)
+                let kelvinToCelcius = (max - 273.15).roundTo(places: 1)
                 self._highTemp = "\(kelvinToCelcius)"
             }
         }
@@ -96,6 +97,15 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: self)
+    }
+}
+
+extension Double {
+    
+    func roundTo(places:Int) -> Double {
+        
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }
 
