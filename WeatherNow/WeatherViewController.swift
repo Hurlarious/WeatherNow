@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -20,6 +21,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     var currentWeather: CurrentWeather!
+    var forecast: Forecast!
+    var forecasts = [Forecast]()
 
     
     // MARK: - Lifecyle
@@ -32,10 +35,13 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         
         currentWeather = CurrentWeather()
+        
         currentWeather.downloadWeatherDetails {
-            
-            self.updateMainUI()
+            self.downloadForecastData {
+                self.updateMainUI()
+            }
         }
+        
     }
     
     // MARK: - TableView Delegate Methods
@@ -58,6 +64,28 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: - Functions
     
+    func downloadForecastData(completed: @escaping DownloadComplete) {
+        
+        let forecastURL = URL(string: FORECAST_URL)!
+        Alamofire.request(forecastURL).responseJSON { response in
+            
+            let result = response.result
+            
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                    
+                    for obj in list {
+                        let forecast = Forecast(weatherDict: obj)
+                        self.forecasts.append(forecast)
+                        print(obj)
+                    }
+                }
+                
+            }
+            completed()
+        }
+    }
     
     func updateMainUI() {
         
@@ -65,9 +93,8 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         currentTempLabel.text = "\(currentWeather.currentTemp)"
         locationLabel.text = currentWeather.cityName
         currentWeatherLabel.text = currentWeather.weatherType
+        
         currentWeatherImage.image = UIImage(named: currentWeather.weatherType)
-        
-        
     }
 
 
