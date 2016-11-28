@@ -55,7 +55,6 @@ class Forecast {
             
             if let min = temp["min"] as? Double {
                 
-                //let kelvinToCelcius = round(10 * (min - 273.15)/10)
                 let kelvinToCelcius = (min - 273.15).roundTo(places: 1)
                 self._lowTemp = "\(kelvinToCelcius)°"
             }
